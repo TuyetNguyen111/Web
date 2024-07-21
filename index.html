@@ -71,15 +71,32 @@
       
       const bmi = weight / (height * height);
       let advice = '';
+      let links = '';
       
       if (bmi < 18.5) {
         advice = "Bạn đang thiếu cân. Hãy ăn nhiều thực phẩm giàu năng lượng và protein, tập luyện nhẹ nhàng.";
+        links = `
+          <p><a href="https://example.com/underweight-diet" target="_blank">Chế độ ăn cho người thiếu cân</a></p>
+          <p><a href="https://example.com/light-exercises" target="_blank">Bài tập nhẹ nhàng</a></p>
+        `;
       } else if (bmi >= 18.5 && bmi < 24.9) {
         advice = "Chỉ số BMI của bạn bình thường. Hãy duy trì chế độ ăn uống và tập luyện hiện tại.";
+        links = `
+          <p><a href="https://example.com/healthy-diet" target="_blank">Chế độ ăn lành mạnh</a></p>
+          <p><a href="https://example.com/regular-exercises" target="_blank">Bài tập duy trì</a></p>
+        `;
       } else if (bmi >= 25 && bmi < 29.9) {
         advice = "Bạn đang thừa cân. Hãy giảm khẩu phần ăn có nhiều chất béo và đường, tăng cường tập luyện.";
+        links = `
+          <p><a href="https://example.com/weight-loss-diet" target="_blank">Chế độ ăn giảm cân</a></p>
+          <p><a href="https://example.com/intense-exercises" target="_blank">Bài tập cường độ cao</a></p>
+        `;
       } else {
         advice = "Bạn đang béo phì. Hãy thực hiện chế độ ăn uống lành mạnh và tập luyện đều đặn.";
+        links = `
+          <p><a href="https://example.com/obesity-diet" target="_blank">Chế độ ăn cho người béo phì</a></p>
+          <p><a href="https://example.com/high-intensity-exercises" target="_blank">Bài tập cường độ cao</a></p>
+        `;
       }
       
       const resultDiv = document.getElementById('result');
@@ -87,6 +104,7 @@
         <h2>Kết quả:</h2>
         <p>BMI: ${bmi.toFixed(2)}</p>
         <p>Lời khuyên: ${advice}</p>
+        ${links}
       `;
     });
   </script>
